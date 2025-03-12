@@ -1,0 +1,76 @@
+﻿<Window x:Class="MasterFloor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MasterFloor"
+        mc:Ignorable="d"
+        Title="Мастер Пол. Партнёры"
+        Height="450"
+        Width="800"
+        Icon="/Images/Мастер пол.ico">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0"
+               Source="/Images/Мастер пол.png"
+               Width="28px"
+               Margin="5 0 10 0" />
+        <TextBlock FontSize="28"
+                   Text="Партнёры"
+                   Grid.Column="1" />
+
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Margin="5"
+                      Grid.Row="1"
+                      Grid.ColumnSpan="2">
+            <ListBox x:Name="partnersList"
+                     Background="#F4E8D3"
+                     BorderBrush="Gray"
+                     BorderThickness="1"
+                     HorizontalContentAlignment="Stretch"
+                     FontSize="16">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock FontSize="20"
+                                       TextWrapping="Wrap">
+                                <Run Text="{Binding PartnerTypeEntity.Name}" />
+                                |
+                                <Run Text="{Binding Name}" />
+                            </TextBlock>
+
+                            <TextBlock Text="{Binding Discount, StringFormat=p0}"
+                                       Grid.Column="1"
+                                       Margin="0 0 15 0"
+                                       FontSize="20" />
+
+                            <TextBlock Grid.Row="1">
+                                <Run Text="{Binding Director}" /><LineBreak />
+                                +7 <Run Text="{Binding Phone}" /><LineBreak />
+                                Рейтинг: <Run Text="{Binding Rating}" />
+                            </TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+    </Grid>
+</Window>
