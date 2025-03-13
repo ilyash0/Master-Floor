@@ -8,5 +8,19 @@
             <Setter Property="FontFamily"
                     Value="Segoe UI" />
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily"
+                    Value="Segoe UI" />
+            <Setter Property="Background"
+                    Value="#67BA80" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
+            <Setter Property="Padding"
+                    Value="20 5" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
     </Application.Resources>
 </Application>

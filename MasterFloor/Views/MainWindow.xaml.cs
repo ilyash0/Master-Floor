@@ -1,5 +1,6 @@
 ﻿using MasterFloor.Models;
 using MasterFloor.ViewModels;
+using MasterFloor.Views;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,13 +17,12 @@ namespace MasterFloor
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : NavigationWindow
     {
+        public static readonly MainWindow Instance = (MainWindow)Application.Current.MainWindow;
         public MainWindow()
         {
             InitializeComponent();
-
-            partnersList.ItemsSource = PartnerViewModel.GetPartnersForView();
         }
     }
 }

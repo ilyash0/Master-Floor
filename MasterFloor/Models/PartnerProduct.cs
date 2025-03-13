@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MasterFloor.Models
 {
-    class PartnerProduct
+    public partial class PartnerProduct
     {
         public int Id { get; set; }
         public int ProductId { get; set; }

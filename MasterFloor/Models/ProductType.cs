@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterFloor.Models
 {
-    class ProductType
+    public partial class ProductType
     {
         public int Id { get; set; }
         public string Name { get; set; }

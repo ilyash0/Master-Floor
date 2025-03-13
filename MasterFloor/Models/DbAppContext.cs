@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MasterFloor.Models
 {
@@ -35,6 +36,11 @@ namespace MasterFloor.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var dateTimeConverter = new ValueConverter<DateTime, DateTime>(
+                v => DateTime.SpecifyKind(v, DateTimeKind.Utc),
+                v => DateTime.SpecifyKind(v, DateTimeKind.Utc)
+            );
+
             modelBuilder.Entity<PartnerType>(entity =>
             {
                 entity.ToTable("partner_type");
@@ -88,7 +94,7 @@ namespace MasterFloor.Models
                 entity.Property(e => e.Id).HasColumnName("partner_product_id");
                 entity.Property(e => e.PartnerId).HasColumnName("partner_id");
                 entity.Property(e => e.ProductId).HasColumnName("product_id");
-                entity.Property(e => e.SaleDate).HasColumnName("sale_timestamp");
+                entity.Property(e => e.SaleDate).HasColumnName("sale_timestamp").HasConversion(dateTimeConverter);
                 entity.Property(e => e.Quanity).HasColumnName("quantity");
 
                 entity.HasOne(p => p.ProductEntity).WithMany(p => p.PartnerProductEntities);

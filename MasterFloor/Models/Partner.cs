@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MasterFloor.Models
 {
-    class Partner
+    public partial class Partner
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -32,12 +32,14 @@ namespace MasterFloor.Models
 
                 int totalSales = PartnerProductEntities.Sum(p => p.Quanity);
 
-                return totalSales > 300000 ? .15 :
-                    totalSales > 50000 ? .10 :
-                    totalSales > 10000 ? .05 :
+                return totalSales > 300_000 ? .15 :
+                    totalSales > 50_000 ? .10 :
+                    totalSales > 10_000 ? .05 :
                     0;
             }
         }
+        public Partner()
+        { }
         public Partner(int id, string name, string director, string email, string phone, string address, string inn, int rating, int partnerTypeId)
         {
             Id = id;
