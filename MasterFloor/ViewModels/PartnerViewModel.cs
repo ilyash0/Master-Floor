@@ -12,21 +12,17 @@ namespace MasterFloor.ViewModels
     {
         public static List<Partner> GetPartnersForView()
         {
-            using (DbAppContext ctx = new())
-            {
-                return ctx.Partners
-                    .Include(p => p.PartnerTypeEntity)
-                    .Include(p => p.PartnerProductEntities)
-                    .ToList();
-            }
+            using DbAppContext ctx = new();
+            return ctx.Partners
+                .Include(p => p.PartnerTypeEntity)
+                .Include(p => p.PartnerProductEntities)
+                .ToList();
         }
 
         public static List<PartnerType> GetPartnerTypesForView()
         {
-            using (DbAppContext ctx = new())
-            {
-                return ctx.PartnerTypes.ToList();
-            }
+            using DbAppContext ctx = new();
+            return ctx.PartnerTypes.ToList();
         }
 
         public static void CreateNewPartner(Partner partner)
@@ -36,11 +32,9 @@ namespace MasterFloor.ViewModels
                 return;
             }
 
-            using (DbAppContext ctx = new())
-            {
-                ctx.Partners.Add(partner);
-                ctx.SaveChanges();
-            }
+            using DbAppContext ctx = new();
+            ctx.Partners.Add(partner);
+            ctx.SaveChanges();
         }
 
         public static void UpdatePartner(Partner partner)
@@ -50,11 +44,9 @@ namespace MasterFloor.ViewModels
                 return;
             }
 
-            using (DbAppContext ctx = new())
-            {
-                ctx.Partners.Update(partner);
-                ctx.SaveChanges();
-            }
+            using DbAppContext ctx = new();
+            ctx.Partners.Update(partner);
+            ctx.SaveChanges();
         }
     }
 }

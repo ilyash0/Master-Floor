@@ -23,50 +23,43 @@ namespace MasterFloor.Views
     /// </summary>
     public partial class PartnerEditPage : Page
     {
-        internal Partner CurrentPartner { get; set; }
+        private readonly Partner _currentPartner;
         public PartnerEditPage()
         {
             InitializeComponent();
-            CurrentPartner = new();
+            _currentPartner = new();
             Init("Новый партнёр");
         }
+
         public PartnerEditPage(Partner partner)
         {
             InitializeComponent();
-            CurrentPartner = partner;
-            Init($"{CurrentPartner.PartnerTypeEntity.Name} «{CurrentPartner.Name}»");
+            _currentPartner = partner;
+            Init($"{_currentPartner.PartnerTypeEntity.Name} «{_currentPartner.Name}»");
         }
-        private void Init(string title)
-        {
-            comboBoxPartnerType.ItemsSource = PartnerViewModel.GetPartnerTypesForView();
-            DataContext = CurrentPartner;
-            MainWindow.Instance.Title = title;
-            titleTextBlock.Text = title;
-        }
+
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.Instance.Navigate(new ListPage());
         }
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (!ValidateFields())
+            if (!IsAllFieldsValid())
             {
                 return;
             }
 
             try
             {
-                using (DbAppContext ctx = new())
+                // Если партнёр новый (Id равен 0), добавляем его, иначе обновляем существующего
+                if (_currentPartner.Id == 0)
                 {
-                    // Если партнёр новый (Id равен 0), добавляем его, иначе обновляем существующего
-                    if (CurrentPartner.Id == 0)
-                    {
-                        PartnerViewModel.CreateNewPartner(CurrentPartner);
-                    }
-                    else
-                    {
-                        PartnerViewModel.UpdatePartner(CurrentPartner);
-                    }
+                    PartnerViewModel.CreateNewPartner(_currentPartner);
+                }
+                else
+                {
+                    PartnerViewModel.UpdatePartner(_currentPartner);
                 }
                 MessageBox.Show("Партнёр успешно сохранён.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainWindow.Instance.Navigate(new ListPage());
@@ -83,7 +76,14 @@ namespace MasterFloor.Views
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private bool ValidateFields()
+        private void Init(string title)
+        {
+            comboBoxPartnerType.ItemsSource = PartnerViewModel.GetPartnerTypesForView();
+            DataContext = _currentPartner;
+            MainWindow.Instance.SetTitle(title);
+        }
+
+        private bool IsAllFieldsValid()
         {
             if (string.IsNullOrWhiteSpace(txtPartnerName.Text))
             {

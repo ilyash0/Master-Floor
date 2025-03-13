@@ -17,12 +17,24 @@ namespace MasterFloor
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class MainWindow : Window
     {
         public static readonly MainWindow Instance = (MainWindow)Application.Current.MainWindow;
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new Views.ListPage());
+        }
+
+        public void Navigate(Page page)
+        {
+            MainFrame.Navigate(page);
+        }
+
+        public void SetTitle(string title)
+        {
+            Title = title;
+            headerTitle.Text = title;
         }
     }
 }

@@ -22,81 +22,78 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="0"
-               Source="/Images/Мастер пол.png"
-               Width="28px"
-               Margin="5 0 10 0" />
-        <TextBlock x:Name="titleTextBlock"
-                   FontSize="28"
-                   Text="Новый партнёр"
-                   Grid.Column="1" />
-
         <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto"
                       Margin="10"
                       Grid.Row="1"
-                      Grid.ColumnSpan="3">
-            <StackPanel Background="#F4E8D3">
+                      Grid.ColumnSpan="3"
+                      Background="#F4E8D3">
+            
+            <Border BorderBrush="Gray"
+                    BorderThickness="1"
+                    Padding="5">
 
-                <TextBlock Text="Наименование:"
-                           Margin="0,0,0,5" />
-                <TextBox x:Name="txtPartnerName"
-                         Height="20"
-                         Margin="0,0,0,10"
-                         Text="{Binding Name}" />
+                <StackPanel>
+                    <TextBlock Text="Наименование:"
+                               Margin="0,0,0,5" />
+                    <TextBox x:Name="txtPartnerName"
+                             Height="20"
+                             Margin="0,0,0,10"
+                             Text="{Binding Name}" />
 
-                <TextBlock Text="Тип партнёра:"
-                           Margin="0,0,0,5" />
-                <ComboBox Name="comboBoxPartnerType"
-                          SelectedValue="{Binding PartnerTypeId}"
-                          SelectedValuePath="Id"
-                          DisplayMemberPath="Name"
-                          Margin="0,0,0,10"
-                          Height="20" />
+                    <TextBlock Text="Тип партнёра:"
+                               Margin="0,0,0,5" />
+                    <ComboBox Name="comboBoxPartnerType"
+                              SelectedValue="{Binding PartnerTypeId}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="Name"
+                              Margin="0,0,0,10"
+                              Height="20" />
 
-                <TextBlock Text="Рейтинг (целое число):"
-                           Margin="0,0,0,5" />
-                <TextBox x:Name="txtRating"
-                         Height="20"
-                         Margin="0,0,0,10"
-                         Text="{Binding Rating}"
-                         PreviewTextInput="NumberValidationTextBox" />
+                    <TextBlock Text="Рейтинг (целое число):"
+                               Margin="0,0,0,5" />
+                    <TextBox x:Name="txtRating"
+                             Height="20"
+                             Margin="0,0,0,10"
+                             Text="{Binding Rating}"
+                             PreviewTextInput="NumberValidationTextBox" />
 
-                <TextBlock Text="Адрес:"
-                           Margin="0,0,0,5" />
-                <TextBox x:Name="txtAddress"
-                         Height="20"
-                         Margin="0,0,0,10"
-                         Text="{Binding Address}" />
+                    <TextBlock Text="Адрес:"
+                               Margin="0,0,0,5" />
+                    <TextBox x:Name="txtAddress"
+                             Height="20"
+                             Margin="0,0,0,10"
+                             Text="{Binding Address}" />
 
-                <TextBlock Text="ФИО директора:"
-                           Margin="0,0,0,5" />
-                <TextBox x:Name="txtDirector"
-                         Height="20"
-                         Margin="0,0,0,10"
-                         Text="{Binding Director}" />
+                    <TextBlock Text="ФИО директора:"
+                               Margin="0,0,0,5" />
+                    <TextBox x:Name="txtDirector"
+                             Height="20"
+                             Margin="0,0,0,10"
+                             Text="{Binding Director}" />
 
-                <TextBlock Text="Телефон:"
-                           Margin="0,0,0,5" />
-                <TextBox x:Name="txtPhone"
-                         Height="20"
-                         Margin="0,0,0,10"
-                         Text="{Binding Phone}" />
+                    <TextBlock Text="Телефон:"
+                               Margin="0,0,0,5" />
+                    <TextBox x:Name="txtPhone"
+                             Height="20"
+                             Margin="0,0,0,10"
+                             Text="{Binding Phone}" />
 
-                <TextBlock Text="Email:"
-                           Margin="0,0,0,5" />
-                <TextBox x:Name="txtEmail"
-                         Height="20"
-                         Margin="0,0,0,10"
-                         Text="{Binding Email}" />
+                    <TextBlock Text="Email:"
+                               Margin="0,0,0,5" />
+                    <TextBox x:Name="txtEmail"
+                             Height="20"
+                             Margin="0,0,0,10"
+                             Text="{Binding Email}" />
 
-                <TextBlock Text="ИНН:"
-                           Margin="0,0,0,5" />
-                <TextBox x:Name="txtInn"
-                         Height="20"
-                         Margin="0,0,0,10"
-                         Text="{Binding Inn}" />
-            </StackPanel>
+                    <TextBlock Text="ИНН:"
+                               Margin="0,0,0,5" />
+                    <TextBox x:Name="txtInn"
+                             Height="20"
+                             Margin="0,0,0,10"
+                             Text="{Binding Inn}" />
+                </StackPanel>
+            </Border>
         </ScrollViewer>
 
         <StackPanel Orientation="Horizontal"

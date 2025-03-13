@@ -8,6 +8,7 @@
             <Setter Property="FontFamily"
                     Value="Segoe UI" />
         </Style>
+        
         <Style TargetType="Button">
             <Setter Property="FontFamily"
                     Value="Segoe UI" />

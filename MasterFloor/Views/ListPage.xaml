@@ -20,13 +20,6 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="0"
-               Source="/Images/Мастер пол.png"
-               Width="28px"
-               Margin="5 0 10 0" />
-        <TextBlock FontSize="28"
-                   Text="Партнёры"
-                   Grid.Column="1" />
         <Button Content="Добавить нового партнёра"
                 Grid.Row="2"
                 Grid.Column="2"

@@ -26,7 +26,7 @@ namespace MasterFloor.Views
         {
             InitializeComponent();
             partnersList.ItemsSource = PartnerViewModel.GetPartnersForView();
-            MainWindow.Instance.Title = "Мастер Пол. Партнёры";
+            MainWindow.Instance.SetTitle("Мастер Пол. Партнёры");
         }
         private void CreatePartner_Click(object sender, RoutedEventArgs e)
         {
