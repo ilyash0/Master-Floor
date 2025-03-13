@@ -50,7 +50,7 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
 
-                            <TextBlock FontSize="20"
+                            <TextBlock FontSize="18"
                                        TextWrapping="Wrap">
                             <Run Text="{Binding PartnerTypeEntity.Name}" />
                             |
@@ -60,7 +60,7 @@
                             <TextBlock Text="{Binding Discount, StringFormat=p0}"
                                        Grid.Column="1"
                                        Margin="0 0 15 0"
-                                       FontSize="20" />
+                                       FontSize="18" />
 
                             <TextBlock Grid.Row="1">
                             <Run Text="{Binding Director}" /><LineBreak />

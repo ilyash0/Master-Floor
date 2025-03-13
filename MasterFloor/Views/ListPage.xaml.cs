@@ -48,7 +48,7 @@ namespace MasterFloor.Views
             {
                 // Изменяем вертикальное смещение в зависимости от направления прокрутки
                 scrollViewer.ScrollToVerticalOffset(scrollViewer.VerticalOffset - e.Delta);
-                e.Handled = true; // Помечаем событие как обработанное
+                e.Handled = true;
             }
         }
     }
