@@ -29,12 +29,11 @@ namespace MasterFloor.Views
             MainWindow.Instance.SetTitle("Расчёт количества материала");
             comboBoxProductType.ItemsSource = ViewModel.GetProductTypesForView();
             comboBoxMaterialType.ItemsSource = ViewModel.GetMaterialTypesForView();
-            var a = (ComboBox)comboBoxProductType.SelectedItem;
         }
         private void Calculate_Click(object sender, RoutedEventArgs e)
         {
-            int productTypeId = ((ProductType)comboBoxProductType.SelectedItem).Id;
-            int materialTypeId = ((MaterialType)comboBoxMaterialType.SelectedItem).Id;
+            int productTypeId = (int)comboBoxProductType.SelectedValue;
+            int materialTypeId = (int)comboBoxMaterialType.SelectedValue;
 
             if (!int.TryParse(txtQuantity.Text, out int quantity) ||
                 !double.TryParse(txtWidth.Text, out double width) ||
