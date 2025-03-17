@@ -28,7 +28,7 @@
                       Grid.Row="1"
                       Grid.ColumnSpan="3"
                       Background="#F4E8D3">
-            
+
             <Border BorderBrush="Gray"
                     BorderThickness="1"
                     Padding="5">
@@ -39,7 +39,8 @@
                     <TextBox x:Name="txtPartnerName"
                              Height="20"
                              Margin="0,0,0,10"
-                             Text="{Binding Name}" />
+                             Text="{Binding Name}"
+                             MaxLength="100" />
 
                     <TextBlock Text="Тип партнёра:"
                                Margin="0,0,0,5" />
@@ -56,54 +57,58 @@
                              Height="20"
                              Margin="0,0,0,10"
                              Text="{Binding Rating}"
-                             PreviewTextInput="NumberValidationTextBox" />
+                             PreviewTextInput="NumberValidationTextBox"
+                             MaxLength="2" />
 
                     <TextBlock Text="Адрес:"
                                Margin="0,0,0,5" />
                     <TextBox x:Name="txtAddress"
                              Height="20"
                              Margin="0,0,0,10"
-                             Text="{Binding Address}" />
+                             Text="{Binding Address}"
+                             MaxLength="200" />
 
                     <TextBlock Text="ФИО директора:"
                                Margin="0,0,0,5" />
                     <TextBox x:Name="txtDirector"
                              Height="20"
                              Margin="0,0,0,10"
-                             Text="{Binding Director}" />
+                             Text="{Binding Director}"
+                             MaxLength="100" />
 
                     <TextBlock Text="Телефон:"
                                Margin="0,0,0,5" />
                     <TextBox x:Name="txtPhone"
                              Height="20"
                              Margin="0,0,0,10"
-                             Text="{Binding Phone}" />
+                             Text="{Binding Phone}"
+                             MaxLength="15" />
 
                     <TextBlock Text="Email:"
                                Margin="0,0,0,5" />
                     <TextBox x:Name="txtEmail"
                              Height="20"
                              Margin="0,0,0,10"
-                             Text="{Binding Email}" />
+                             Text="{Binding Email}"
+                             MaxLength="50" />
 
                     <TextBlock Text="ИНН:"
                                Margin="0,0,0,5" />
                     <TextBox x:Name="txtInn"
                              Height="20"
                              Margin="0,0,0,10"
-                             Text="{Binding Inn}" />
+                             Text="{Binding Inn}"
+                             MaxLength="12" />
                 </StackPanel>
             </Border>
         </ScrollViewer>
 
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Right"
-                    Grid.Row="2"
-                    Grid.Column="2">
+        <WrapPanel Grid.Row="2"
+                   Grid.Column="2">
             <Button Content="Сохранить"
                     Click="Save_Click" />
             <Button Content="Отменить"
                     Click="Cancel_Click" />
-        </StackPanel>
+        </WrapPanel>
     </Grid>
 </Page>
