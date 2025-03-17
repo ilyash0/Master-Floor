@@ -23,54 +23,50 @@
         <Button Content="Добавить нового партнёра"
                 Grid.Row="2"
                 Grid.Column="2"
-                Click="CreatePartner_Click"/>
+                Click="CreatePartner_Click" />
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Auto"
-                      PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
-                      Margin="5"
-                      Grid.Row="1"
-                      Grid.ColumnSpan="3">
-            <ListBox x:Name="partnersList"
-                     Background="#F4E8D3"
-                     BorderBrush="Gray"
-                     BorderThickness="1"
-                     HorizontalContentAlignment="Stretch"
-                     MouseDoubleClick="PartnersList_MouseDoubleClick">
+        <ListBox x:Name="partnersList"
+                 Background="#F4E8D3"
+                 BorderBrush="Gray"
+                 BorderThickness="1"
+                 HorizontalContentAlignment="Stretch"
+                 MouseDoubleClick="PartnersList_MouseDoubleClick"
+                 Margin="5"
+                 Grid.Row="1"
+                 Grid.ColumnSpan="3">
 
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
 
-                            <TextBlock FontSize="18"
-                                       TextWrapping="Wrap">
+                        <TextBlock FontSize="18"
+                                   TextWrapping="Wrap">
                             <Run Text="{Binding PartnerTypeEntity.Name}" />
                             |
                             <Run Text="{Binding Name}" />
-                            </TextBlock>
+                        </TextBlock>
 
-                            <TextBlock Text="{Binding Discount, StringFormat=p0}"
-                                       Grid.Column="1"
-                                       Margin="0 0 15 0"
-                                       FontSize="18" />
+                        <TextBlock Text="{Binding Discount, StringFormat=p0}"
+                                   Grid.Column="1"
+                                   Margin="0 0 15 0"
+                                   FontSize="18" />
 
-                            <TextBlock Grid.Row="1">
+                        <TextBlock Grid.Row="1">
                             <Run Text="{Binding Director}" /><LineBreak />
                             +7 <Run Text="{Binding Phone}" /><LineBreak />
                             Рейтинг: <Run Text="{Binding Rating}" />
-                            </TextBlock>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

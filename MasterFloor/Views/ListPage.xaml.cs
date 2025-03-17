@@ -41,15 +41,5 @@ namespace MasterFloor.Views
                 MainWindow.Instance.Navigate(new PartnerEditPage(partner));
             }
         }
-
-        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            if (sender is ScrollViewer scrollViewer)
-            {
-                // Изменяем вертикальное смещение в зависимости от направления прокрутки
-                scrollViewer.ScrollToVerticalOffset(scrollViewer.VerticalOffset - e.Delta);
-                e.Handled = true;
-            }
-        }
     }
 }
