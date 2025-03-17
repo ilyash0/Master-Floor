@@ -32,7 +32,7 @@ namespace MasterFloor
 
             double materialPerUnit = width * length * productCoefficient;
 
-            double totalMaterial = materialPerUnit * quantity * (1 + scrapRate);
+            double totalMaterial = materialPerUnit * quantity * (1 + scrapRate / 100);
 
             return (int)Math.Ceiling(totalMaterial);
         }
