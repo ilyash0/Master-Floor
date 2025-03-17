@@ -16,6 +16,7 @@ namespace MasterFloor.Models
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<PartnerProduct> PartnersProducts { get; set; }
+        public DbSet<MaterialType> MaterialTypes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Загружаем переменные окружения из .env файла
@@ -71,8 +72,8 @@ namespace MasterFloor.Models
                 entity.ToTable("product_type");
 
                 entity.Property(e => e.Id).HasColumnName("product_type_id");
-                entity.Property(e => e.Name).HasColumnName("partner_type_name");
-                entity.Property(e => e.Coeficent).HasColumnName("partner_type_coeficent");
+                entity.Property(e => e.Name).HasColumnName("product_type_name");
+                entity.Property(e => e.Coeficent).HasColumnName("product_type_coeficent");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -80,7 +81,7 @@ namespace MasterFloor.Models
                 entity.ToTable("product");
 
                 entity.Property(e => e.Id).HasColumnName("product_id");
-                entity.Property(e => e.Name).HasColumnName("partner_name");
+                entity.Property(e => e.Name).HasColumnName("product_name");
                 entity.Property(e => e.MinCost).HasColumnName("min_cost");
                 entity.Property(e => e.ProductTypeId).HasColumnName("product_type_id");
 
@@ -99,6 +100,15 @@ namespace MasterFloor.Models
 
                 entity.HasOne(p => p.ProductEntity).WithMany(p => p.PartnerProductEntities);
                 entity.HasOne(p => p.PartnerEntity).WithMany(p => p.PartnerProductEntities);
+            });
+
+            modelBuilder.Entity<MaterialType>(entity =>
+            {
+                entity.ToTable("material_type");
+
+                entity.Property(e => e.Id).HasColumnName("material_type_id");
+                entity.Property(e => e.Name).HasColumnName("material_type_name");
+                entity.Property(e => e.ScrapRate).HasColumnName("material_type_scrap_rate");
             });
         }
     }

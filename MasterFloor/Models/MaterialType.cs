@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace MasterFloor.Models
 {
-    public partial class ProductType
+    public partial class MaterialType
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public double Coeficent { get; set; }
-        public List<Product> ProductEntities { get; set; }
-        public ProductType(int id, string name, double coeficent)
+        public double ScrapRate { get; set; }
+        public MaterialType(int id, string name, double scrapRate)
         {
             Id = id;
             Name = name;
-            Coeficent = coeficent;
+            ScrapRate = scrapRate;
         }
     }
 }

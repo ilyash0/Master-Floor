@@ -1,5 +1,6 @@
 ﻿using MasterFloor.Models;
 using MasterFloor.ViewModels;
+using Sprache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace MasterFloor.Views
         public ListPage()
         {
             InitializeComponent();
-            partnersList.ItemsSource = PartnerViewModel.GetPartnersForView();
+            partnersList.ItemsSource = ViewModel.GetPartnersForView();
             MainWindow.Instance.SetTitle("Мастер Пол. Партнёры");
         }
         private void CreatePartner_Click(object sender, RoutedEventArgs e)
@@ -40,6 +41,18 @@ namespace MasterFloor.Views
             {
                 MainWindow.Instance.Navigate(new PartnerEditPage(partner));
             }
+        }
+        private void ViewPartnerProduct_Click(object sender, RoutedEventArgs e)
+        {
+            if (partnersList.SelectedItem is Partner partner)
+            {
+                MainWindow.Instance.Navigate(new PartnerProductListPage(partner));
+            }
+        }
+
+        private void ViewMaterialCalculation_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Instance.Navigate(new MaterialCalculation());
         }
     }
 }

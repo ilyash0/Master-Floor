@@ -55,11 +55,11 @@ namespace MasterFloor.Views
                 // Если партнёр новый (Id равен 0), добавляем его, иначе обновляем существующего
                 if (_currentPartner.Id == 0)
                 {
-                    PartnerViewModel.CreateNewPartner(_currentPartner);
+                    ViewModel.CreateNewPartner(_currentPartner);
                 }
                 else
                 {
-                    PartnerViewModel.UpdatePartner(_currentPartner);
+                    ViewModel.UpdatePartner(_currentPartner);
                 }
                 MessageBox.Show("Партнёр успешно сохранён.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainWindow.Instance.Navigate(new ListPage());
@@ -78,7 +78,7 @@ namespace MasterFloor.Views
 
         private void Init(string title)
         {
-            comboBoxPartnerType.ItemsSource = PartnerViewModel.GetPartnerTypesForView();
+            comboBoxPartnerType.ItemsSource = ViewModel.GetPartnerTypesForView();
             DataContext = _currentPartner;
             MainWindow.Instance.SetTitle(title);
         }

@@ -1,0 +1,114 @@
+﻿<Page x:Class="MasterFloor.Views.MaterialCalculation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MasterFloor.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MaterialCalculation">
+
+    <Grid Margin="5"
+          Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Назад"
+                Grid.Row="7"
+                Grid.Column="2"
+                Click="Back_Click" />
+
+        <!-- Поля ввода параметров -->
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Text="ID типа продукции:"
+                   VerticalAlignment="Center" />
+        <ComboBox Name="comboBoxProductType"
+                  SelectedValue="{Binding PartnerTypeId}"
+                  SelectedValuePath="Id"
+                  DisplayMemberPath="Name"
+                  Margin="5"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2" />
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Text="ID типа материала:"
+                   VerticalAlignment="Center" />
+        <ComboBox Name="comboBoxMaterialType"
+                  SelectedValue="{Binding MaterialTypeId}"
+                  SelectedValuePath="Id"
+                  DisplayMemberPath="Name"
+                  Margin="5"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2"/>
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Количество продукции:"
+                   VerticalAlignment="Center" />
+        <TextBox x:Name="txtQuantity"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="5"
+                 PreviewTextInput="NumberValidationTextBox"
+                 MaxLength="10" />
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="0"
+                   Text="Ширина продукции:"
+                   VerticalAlignment="Center" />
+        <TextBox x:Name="txtWidth"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="5"
+                 PreviewTextInput="DoubleValidationTextBox"
+                 MaxLength="10" />
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   Text="Длина продукции:"
+                   VerticalAlignment="Center" />
+        <TextBox x:Name="txtLength"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="5"
+                 PreviewTextInput="DoubleValidationTextBox"
+                 MaxLength="10" />
+
+        <Button Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Content="Рассчитать"
+                Click="Calculate_Click"
+                Margin="5"
+                Height="30" />
+
+        <TextBlock Grid.Row="6"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   x:Name="txtResult"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Foreground="Green"
+                   Margin="5"
+                   TextAlignment="Center" />
+    </Grid>
+</Page>
