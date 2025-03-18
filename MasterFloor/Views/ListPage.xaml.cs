@@ -52,7 +52,7 @@ namespace MasterFloor.Views
 
         private void ViewMaterialCalculation_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.Instance.Navigate(new MaterialCalculation());
+            MainWindow.Instance.Navigate(new MaterialCalculationPage());
         }
     }
 }

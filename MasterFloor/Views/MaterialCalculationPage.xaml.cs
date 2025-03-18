@@ -19,11 +19,11 @@ using System.Windows.Shapes;
 namespace MasterFloor.Views
 {
     /// <summary>
-    /// Interaction logic for MaterialCalculation.xaml
+    /// Interaction logic for MaterialCalculationPage.xaml
     /// </summary>
-    public partial class MaterialCalculation : Page
+    public partial class MaterialCalculationPage : Page
     {
-        public MaterialCalculation()
+        public MaterialCalculationPage()
         {
             InitializeComponent();
             MainWindow.Instance.SetTitle("Расчёт количества материала");
